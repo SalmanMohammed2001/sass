@@ -2,26 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:  border-box;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body{
+  background-color: white;
+}
+
+
+.container{
+  width: 1536px;
+  margin: auto;
+  padding: 0 50px 0 50px ;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-popup-container{
+  place-self: center;
+  width: max(23vw,330px);
+  color: #808080;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 25px 30px ;
+  border-radius: 14px;
+  animation: fadeIn 0.5s;
+}
+
+
+
+@media (max-width :1536px) {
+  .container{
+    width: 1366px;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+@media (max-width :1366px) {
+.container{
+  width: 1280pc;
+}
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@media (max-width :1280px) {
+.container{
+  width: 1024;
+  padding: 0 20px 0 20px ;
+}
+}
+@media (max-width :1024px) {
+.container{
+  width: 768px;
+}
+}
+
+@media (max-width :768px) {
+.container{
+  width: 640px;
+}
+}
+@media (max-width :640px) {
+.container{
+  width: 475px;
+}
+}
+@media (max-width :475px) {
+.container{
+  width: 380px;
+}
 }
