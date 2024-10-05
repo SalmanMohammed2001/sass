@@ -1,20 +1,18 @@
+"use client";
+
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Toolbar from "../Toolbar/toolbar";
 
-interface TiptapProps {
-  onChange: (content: string) => void;  
-  content: string | null;               
-}
+const Tiptap = ({ onChange, content }: any) => {
 
-const Tiptap: React.FC<TiptapProps> = ({ onChange, content }) => {
   const handleChange = (newContent: string) => {
     onChange(newContent);
   };
-
   const editor = useEditor({
     extensions: [StarterKit, Underline],
+
     editorProps: {
       attributes: {
         class:
@@ -24,19 +22,12 @@ const Tiptap: React.FC<TiptapProps> = ({ onChange, content }) => {
     onUpdate: ({ editor }) => {
       handleChange(editor.getHTML());
     },
-    content, // Pass content as is, it can be null
   });
 
   return (
-    <div className="w-full">
-      {content ? ( // Check if content is not null
-        <>
-          <Toolbar editor={editor} content={content} />
-          <EditorContent style={{ whiteSpace: "pre-line" }} editor={editor} />
-        </>
-      ) : (
-        <p>No content available.</p> // Optional fallback for null content
-      )}
+    <div className="w-full ">
+      <Toolbar editor={editor} content={content}/>
+      <EditorContent style={{ whiteSpace: "pre-line" }} editor={editor} />
     </div>
   );
 };

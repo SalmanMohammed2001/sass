@@ -21,7 +21,7 @@ type Props = {
   content: string;
 };
 
-const Toolbar = ({ editor, }: Props) => {
+const Toolbar = ({ editor, content }: Props) => {
   if (!editor) {
     return null;
   }
