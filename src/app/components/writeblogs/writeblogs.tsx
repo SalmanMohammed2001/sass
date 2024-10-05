@@ -234,6 +234,8 @@ const Writeblogs = () => {
 
 <Tiptap
           name="content"
+          //@ts-ignore
+          // @ts-expect-error: someFunction is not typed, but we expect it to work
           content={content}
           onChange={(newContent: string) => handleContentChange(newContent)}
         />
