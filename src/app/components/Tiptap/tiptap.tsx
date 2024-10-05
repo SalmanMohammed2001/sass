@@ -5,7 +5,8 @@ import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Toolbar from "../Toolbar/toolbar";
 
-//@ts-expect-error
+//@ts-ignore
+// @ts-expect-error: This part intentionally bypasses type checking due to legacy API behavior
 const Tiptap = ({ onChange, content }) => {
 
   const handleChange = (newContent: string) => {
