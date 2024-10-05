@@ -159,7 +159,7 @@ const Writeblogs = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        router.push("/blogs");
+        router.push("/blog");
       }
     } else {
       setLoading(false);
