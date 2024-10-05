@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-
+import { createClient } from "@/app/lib/supabase/client";
 
 import {useEffect, useRef, useState, useTransition} from "react";
 import { getUser, logOut } from "@/app/login/users";
@@ -74,17 +74,16 @@ const Navbar =  () => {
 
     const userGetUser=async()=>{
 
-   
+        const supabase = createClient();
+        const user =  (await supabase.auth.getUser()).data.user;
 
-        const data = await getUser();
-
-        console.log(data);
+        console.log(user);
         
 
   // Expecting a possible null value from findSubscription
              // @ts-expect-error: findSubscription may return null, which we handle in the subsequent logic
         
-        setUser(data)
+        setUser(user)
     }
 
 
