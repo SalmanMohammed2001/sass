@@ -3,7 +3,7 @@
 
 import Stripe from "stripe";
 
-const stripe=new Stripe(process.env.SRTIPE_SK!)
+const stripe=new Stripe("sk_test_51PQTK101P3LearWwaoznX75Dd2MhxQASadDvjbrrTpVbASwwex071C7zZl0P4WPHf2XRnACJNANrRt7wwdMaWtmz00AmF4T0Mr")
 
 
 

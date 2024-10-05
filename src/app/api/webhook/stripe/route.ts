@@ -2,8 +2,8 @@ import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/app/lib/supabase/admin";
 
-const stripe = new Stripe(process.env.SRTIPE_SK!);
-const endpointSecret: string=process.env.STRIPE_ENDPOINT_SECRET!
+const stripe = new Stripe("sk_test_51PQTK101P3LearWwaoznX75Dd2MhxQASadDvjbrrTpVbASwwex071C7zZl0P4WPHf2XRnACJNANrRt7wwdMaWtmz00AmF4T0Mr");
+const endpointSecret: string="whsec_jAWqF1iZ0caSufHgXfzjNJnwl8vg8Hnw";
 
 export async function POST(req: Request) {
   const rawBody = await req.arrayBuffer();
