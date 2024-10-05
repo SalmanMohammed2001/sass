@@ -13,7 +13,7 @@ export const metadata={
   
 }
 
-import { searchProfileData } from "@/app/lib/supabase/profile_update";
+import { searchProfileData } from "@/app/lib/supabase/profileupdate";
 
 
 
@@ -38,17 +38,9 @@ export default async  function Home() {
     await searchProfileData(userEmail)
     
     
-    
+
   }
  
-
-
-
-  
-
-
-  
-
 
   return (
 
