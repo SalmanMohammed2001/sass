@@ -111,7 +111,7 @@ const Navbar =  () => {
         <div className={`   flex  justify-between w-[100vw] fixed bg-white   z-50 border`}      >
        <div className=" w-full flex justify-between px-[100px]"> 
        <div className="flex items-center">
-                <Link href={"/"} className=" text-[25px]  md:text-[44px]">BLOG SASS</Link>
+                <Link href={"/"} className=" text-[25px]  md:text-[44px] hidden lg:flex">BLOG SASS</Link>
             </div>
 
             <div className={" hidden md:flex"}>
@@ -157,7 +157,7 @@ const Navbar =  () => {
 
                 <ul className={`flex gap-[40px] text-lg items-center justify-center flex-col  transition-all duration-300 ease-in-out `}>
                 <li><Link href={"/"} className="text-white ">HOME</Link></li>
-                        <li><Link href={"/write"} className="text-white ">READ</Link></li>
+                        <li><Link href={"/blog"} className="text-white ">READ</Link></li>
                         <li><Link href={"/write"} className="text-white ">WRITE</Link></li>
 
                         { user != null  &&    <li><Link href={"/profile"} className="text-white hover:text-[#0AA195]">PROFILE</Link></li> }

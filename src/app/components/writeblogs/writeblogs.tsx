@@ -176,10 +176,10 @@ const Writeblogs = () => {
   }
 
   return (
-    <div className="flex justify-center items-center mt-[100px] text-black">
+    <div className="flex justify-center items-center mt-[100px]   text-black  p-5 min-h-[100vh]">
 
     
-      <div className="max-w-3xl w-full grid place-items-start mx-auto pt-10 mb-10 gap-[18px]">
+      <div className="max-w-3xl w-[100vw]     grid place-items-center  md:place-items-start mx-auto pt-10 mb-10 gap-[18px]">
 
       <h1 className="text-[24px] font-semibold">Type You are Blog </h1>
 
@@ -187,7 +187,7 @@ const Writeblogs = () => {
           onChange={handleInputChange}
           id="title"
           name="title"
-          className="border-black border-2 border-solid rounded-md px-4 py-3 text-black font-medium text-[16px] w-[80%] outline-none mb-5"
+          className="border-black border border-solid rounded-md px-4 py-3 text-black font-medium text-[16px]  w-[250px] sm:w-[100%] outline-none mb-5"
           type="text"
           placeholder="Title"
           value={formData.title}
@@ -232,11 +232,12 @@ const Writeblogs = () => {
           </div>
         )}
 
-<Tiptap
+<Tiptap 
           name="content"
          
           // @ts-expect-error: someFunction is not typed, but we expect it to work
           content={content}
+          
           onChange={(newContent: string) => handleContentChange(newContent)}
         />
         {errors.content && <p className="text-red-500">{errors.content}</p>}
@@ -244,7 +245,7 @@ const Writeblogs = () => {
         <button
           onClick={saveFunction}
           type="submit"
-          className="px-4 bg-[#0AA195] text-white py-2 rounded-md"
+          className="px-4 bg-[#0AA195] text-white py-2 rounded-md  "
         >
           Save Blog
         </button>

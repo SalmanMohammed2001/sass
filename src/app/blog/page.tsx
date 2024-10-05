@@ -1,7 +1,7 @@
 import Allblogs from "@/app/components/allblogs/allblogs";
 import { redirect } from "next/navigation";
 import Price from "@/app/components/subscription/subscription";
-import { createClient } from "@/app/lib/supabase/server";
+import { createClient } from "@/app/lib/supabase/client";
 
 export const metadata = {
   title: "Blog details",
