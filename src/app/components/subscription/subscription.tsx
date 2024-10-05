@@ -47,36 +47,34 @@ const Price = () => {
    <div>
 
 
-<div className='grid grid-cols-1 p-[50px]   md:grid-cols-3  lg:gri gap-5'>
-    {prices.map((price, index) => {
-
+<div className='grid grid-cols-1 p-8 md:p-10 lg:p-12 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+  {prices.map((price, index) => {
+    return (
+      <div key={index} className="border rounded-md p-5 space-y-5 transition-transform transform hover:scale-105">
         
-
-
-      return (
-        <div key={index} className={ "border rounded-md  p-5 space-y-5"}>
-    
-        <div className='space-y-3 '>
-        <h1 className='text-3xl font-bold '>${price.title}</h1>
-          <h1  className='text-2xl font-bold  '>{price.amount}$</h1>
-          <p className='text-sm text-gray-[400]  '>{price.description}</p>
+        <div className='space-y-3'>
+          <h1 className='text-2xl md:text-3xl font-bold'>{price.title}</h1>
+          <h1 className='text-xl md:text-2xl font-bold'>{price.amount}$</h1>
+          <p className='text-sm text-gray-400'>{price.description}</p>
         </div>
 
-        <div className=' '>
-            {price.benfitid.map((benfits,index)=>{
-                return(<div key={index} className='flex items-center gap-2'>
+        <div>
+          {price.benfitid.map((benfit, index) => {
+            return (
+              <div key={index} className='flex items-center gap-2'>
+                <LuCheckCircle2 />
+                <h1 className='text-sm text-gray-400'>{benfit}</h1>
+              </div>
+            );
+          })}
+        </div>
+        
+        <Checkout priceId={price.priceId} />
+      </div>
+    );
+  })}
+</div>
 
-            <LuCheckCircle2 />
-<h1 className=' text-sm text-gray-400'>{benfits}</h1>
-                </div>)
-            })}
-        </div>
-          
-       <Checkout priceId={price.priceId}/>
-        </div>
-      );
-    })}
-  </div>
 
    </div>
   )

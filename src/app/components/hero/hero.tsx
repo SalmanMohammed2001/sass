@@ -17,11 +17,11 @@ const Hero =  () => {
  <div className={`  `}>
 
 <div className="   flex flex-col md:flex-row gap-[25px]">
-
-<div className=" flex-1 mt-5">
-  <h1 className=" text-[28px] md:text-[45px] font-[700] -tracking-tight">The Power Of Subscription Economy</h1>
-  <p className=" text-[18px] md:text-[28px]" >
-  Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime The standard chunk of those interested.
+<div className=" flex-1 mt-5  w-[100%]">
+  <h1 className=" text-[17px]  sm:text-[45px] font-[700] -tracking-tight">The Power Of Subscription Economy</h1>
+  <p className=" text-[12px] sm:text-[28px]" >
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias inventore sunt ab enim! Expedita recusandae est reiciendis, at sequi eius dignissimos odio commodi, quam, possimus aliquid quisquam reprehenderit saepe sapiente.
+  
   </p>
 
 
