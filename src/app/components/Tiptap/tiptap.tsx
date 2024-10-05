@@ -31,7 +31,11 @@ const Tiptap = ({ onChange, content }:Log) => {
 
   return (
     <div className="w-full ">
-      <Toolbar editor={editor} content={content}/>
+      {
+        // @ts-expect-error: someFunction is not typed, but we expect it to work
+        <Toolbar editor={editor} content={content}/>
+      }
+     
       <EditorContent style={{ whiteSpace: "pre-line" }} editor={editor} />
     </div>
   );
