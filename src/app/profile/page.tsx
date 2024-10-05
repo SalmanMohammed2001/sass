@@ -39,7 +39,11 @@ const Profile = async () => {
 
   return (
     <div>
-        <SubscriptionDetails email={user.email} />
+      
+      { 
+                // @ts-expect-error: someFunction is not typed, but we expect it to work
+      
+      <SubscriptionDetails email={user.email} />}
     </div>
   )
 }
