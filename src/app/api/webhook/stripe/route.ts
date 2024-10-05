@@ -24,8 +24,8 @@ export async function POST(req: Request) {
         await handlePaymentSucceeded(event.data.object as Stripe.Invoice);
         break;
 
-      case "customer.discount.deleted":
-        await handleCustomerDiscountDeleted(event.data.object as Stripe.Discount);
+      case "customer.subscription.deleted":
+        await handleCustomerDiscountDeleted(event.data.object as Stripe.Subscription);
         break;
 
       default:
@@ -52,7 +52,7 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   }
 }
 
-async function handleCustomerDiscountDeleted(discount: Stripe.Discount) {
+async function handleCustomerDiscountDeleted(discount: Stripe.Subscription) {
   const subscriptionId = discount.id;
   console.log('delete',subscriptionId);
   
