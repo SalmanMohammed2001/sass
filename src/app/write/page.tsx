@@ -7,7 +7,7 @@ import Writeblogs from "@/app/components/writeblogs/writeblogs";
 import { redirect } from "next/navigation";
 
 
-import { getUser } from "../login/users";
+
 
 
 
