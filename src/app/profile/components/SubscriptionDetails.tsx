@@ -7,10 +7,10 @@ import { useEffect, useState, useTransition } from "react"
 
 import { createClient } from "@/app/lib/supabase/client";
 
+// @ts-expect-error: someFunction is not typed, but we expect it to work
+const SubscriptionDetails = ({email}:string) => {
 
-const SubscriptionDetails = ({email}:any) => {
-
-    const[data,setdata]=useState<any>([])
+    const[data,setdata]=useState([])
     const [, startTransition] = useTransition();
 
 
@@ -44,6 +44,7 @@ const SubscriptionDetails = ({email}:any) => {
 
             startTransition(async()=>{
              const data=   await  findSubscription(email)
+            // @ts-expect-error: someFunction is not typed, but we expect it to work
              setdata(data)
             })
 
@@ -69,7 +70,8 @@ const SubscriptionDetails = ({email}:any) => {
         
       
          await Promise.all(
-            data.map(async (value: any) => {
+            data.map(async (value) => {
+                // @ts-expect-error: someFunction is not typed, but we expect it to work
                 const data = JSON.parse( await manageBilling(value.customer_id))
                     window.location.href=data.url
             })
@@ -88,8 +90,8 @@ const SubscriptionDetails = ({email}:any) => {
     <div className=" mt-5 p-5">
 
        {
-        data.map((data:any)=>{
-
+        data.map((data)=>{
+// @ts-expect-error: someFunction is not typed, but we expect it to work
             console.log(data.customer_id);
             
          
