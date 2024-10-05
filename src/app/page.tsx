@@ -1,9 +1,16 @@
 
 
 
+import { createClient } from "@/app/lib/supabase/client";
 
 import { getUser } from "./login/users";
+const supbase = createClient()
 
+interface Profile {
+  id?: number; 
+  email: string;
+  
+}
 
 
 
@@ -35,9 +42,71 @@ export default async  function Home() {
     
   if(userEmail != undefined){
 
+
+  const searchProfileData=async(email:string)=>{    
+  const { data} = await supbase
+  .from('profiles')
+  .select('*')
+  .eq('email', email);
+    if(data?.length == 0){
+    await  saveProfileUser(email)
+     return;
+    }
+
+
+    data?.forEach((data:Profile)=>{
+      if(data.email == email){
+        return;
+      }else{
+       
+        saveProfileUser(email)
+      }
+      
+    })      
+}
+
+
+ const saveProfileUser = async ( userEmail:  string) => {
+  const { data, error } = await supbase
+    .from('profiles')
+    .insert([
+      { 
+        email: userEmail 
+      },
+    ])
+    .select();
+
+  if (data) {
+    subcritionEmail(userEmail);
+  }
+
+  if (error) {
+    console.error('Error inserting profile:', error);
+    return;
+  }
+};
+
+
+ const subcritionEmail = async (userEmail: string) => {
+
+  const { data, error } = await supbase
+    .from('subscriptionData')
+    .insert([
+      { email: userEmail }  
+    ])
+    .select();
+
+  if (error) {
+    console.error('Error inserting subscription:', error);
+  } else {
+    console.log('Inserted data:', data);
+  }
+
+
   
+};
     
-    
+await searchProfileData(userEmail)
 
   }
  
