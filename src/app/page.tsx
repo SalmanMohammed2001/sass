@@ -1,6 +1,6 @@
 
 
-import Hero from "@/app/components/hero/hero";
+
 
 import { getUser } from "./login/users";
 
@@ -70,7 +70,7 @@ export default async  function Home() {
 
     <div className="mt-[100px] ">
 
-      <Hero />
+
     </div>
   
   );
