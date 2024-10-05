@@ -118,7 +118,7 @@ const Navbar =  () => {
                 <nav className=" flex  items-center gap-[25px]  ">
                     <ul className=" gap-[25px] text-[14px] flex">
                         <li><Link href={"/"} className="text-black hover:text-[#0AA195]">HOME</Link></li>
-                        <li><Link href={"/blogs"} className="text-black hover:text-[#0AA195]">READ</Link></li>
+                        <li><Link href={"/blog"} className="text-black hover:text-[#0AA195]">READ</Link></li>
                         <li><Link href={"/write"} className="text-black hover:text-[#0AA195]">WRITE</Link></li>
 
                         { user != null  &&    <li><Link href={"/profile"} className="text-black hover:text-[#0AA195]">PROFILE</Link></li> }
