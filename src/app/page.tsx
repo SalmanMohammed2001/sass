@@ -4,6 +4,7 @@
 import { createClient } from "@/app/lib/supabase/client";
 
 import { getUser } from "./login/users";
+import Hero from "./components/hero/hero";
 const supbase = createClient()
 
 interface Profile {
@@ -114,8 +115,7 @@ await searchProfileData(userEmail)
   return (
 
     <div className="mt-[100px] ">
-<h1>sdfsdfsdfsdfsdfsdfsdfsdf</h1>
-<h1>salamhsbdhasgbfhasdfgvsfdcmnsdbvfhbvsdfjvbsdjvbhsdjhgfvbsdjhvbsdjhbvsdjhbvsdjhvgbhsdjvbsdbvsdjvsdjhgvsdjhbvjhsdvbhjsdbvjsdhvbjhsdvbjhsdbvjhsdvbjhsdv</h1>
+     <Hero />
     </div>
   
   );
