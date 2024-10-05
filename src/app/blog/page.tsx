@@ -1,8 +1,7 @@
 import Allblogs from "@/app/components/allblogs/allblogs";
-import { getUser } from "../login/users";
 import { redirect } from "next/navigation";
-import { findSubscription } from "@/app/lib/supabase/subscription";
 import Price from "@/app/components/subscription/subscription";
+import { createClient } from "@/app/lib/supabase/server";
 
 export const metadata = {
   title: "Blog details",
@@ -18,7 +17,11 @@ interface Subscription {
 }
 
 const Blogs = async () => {
-  const user = await getUser();
+
+  const supabase = createClient();
+  const user =  (await supabase.auth.getUser()).data.user;
+
+  console.log(user);
 
   if (!user) {
     redirect('/login');
@@ -32,6 +35,21 @@ const Blogs = async () => {
   console.log("sub data1");
 
   const data: Subscription[] = (await findSubscription(user.email)) || [];
+
+   async function findSubscription(email:string){
+
+    const { data, error } = await supabase
+    .from("subscriptionData")
+    .select('*')
+    .eq('email', email);
+   
+    if(data){
+        return data;
+    }
+    console.log(error);
+    
+
+}
 
   let isActivate: boolean = false;
 

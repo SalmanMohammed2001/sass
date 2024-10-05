@@ -1,11 +1,13 @@
 "use client";
 
-import { getUserProfileById } from '@/app/lib/supabase/blog';
+
 import React, { useEffect, useState } from 'react';
 import styles from './singlePost.module.css';
 import Image from 'next/image';
 import LoadingCom from '../loadingcom/loading';
+import { createClient } from "@/app/lib/supabase/client";
 
+const supabase = createClient();
 interface Params {
   params: {
     slug: string;
@@ -30,7 +32,27 @@ const Singlepostcom: React.FC<Params> = ({ params }) => {
 
     const fetchProfile = async () => {
       try {
-        const profileData = await getUserProfileById(slug); // No need for 'as string' if it's already typed
+
+        const getUserProfileById = async (userId: string) => {
+          const { data, error } = await supabase
+            .from('listing')  
+            .select('*')
+            .eq('id', userId)
+            .single(); 
+        
+          if (error) {
+            console.error('Error fetching profile:', error);
+            return null;
+          }
+        
+          return data;
+        };
+
+        const profileData = await   getUserProfileById(slug); // No need for 'as string' if it's already typed
+
+       
+        
+      
      
         setData(profileData);
       } catch (error) {
