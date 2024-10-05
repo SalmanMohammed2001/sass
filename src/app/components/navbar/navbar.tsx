@@ -4,7 +4,7 @@ import Link from "next/link";
 import { createClient } from "@/app/lib/supabase/client";
 
 import {useEffect, useRef, useState, useTransition} from "react";
-import { getUser, logOut } from "@/app/login/users";
+import { logOut } from "@/app/login/users";
 ;
 import { CiMenuBurger } from "react-icons/ci";
 import style from './navBar.module.css'
