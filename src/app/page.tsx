@@ -43,6 +43,7 @@ export default async  function Home() {
     
   if(userEmail != undefined){
 
+    
 
   const searchProfileData=async(email:string)=>{    
   const { data} = await supbase
@@ -107,7 +108,7 @@ export default async  function Home() {
   
 };
     
-await searchProfileData(userEmail)
+    await searchProfileData(userEmail)
 
   }
  

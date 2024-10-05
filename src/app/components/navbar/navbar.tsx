@@ -78,6 +78,9 @@ const Navbar =  () => {
 
         const data = await getUser();
 
+        console.log(data);
+        
+
   // Expecting a possible null value from findSubscription
              // @ts-expect-error: findSubscription may return null, which we handle in the subsequent logic
         
