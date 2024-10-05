@@ -27,6 +27,9 @@ export const metadata={
 
 export default async  function Home() {
 
+  console.log('env',process.env.STRIPE_ENDPOINT_SECRET);
+  
+
   const  user= await getUser()   
   
 
