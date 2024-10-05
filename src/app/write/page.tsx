@@ -14,7 +14,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/app/lib/supabase/server";
 
 export const metadata={
-  title:"Blog Write Page",
+  title:"Blog Write Pages",
   description:"we can write own blog"
   
 }
