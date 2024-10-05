@@ -5,7 +5,8 @@ import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Toolbar from "../Toolbar/toolbar";
 
-const Tiptap = ({ onChange, content }: any) => {
+//@ts-expect-error
+const Tiptap = ({ onChange, content }) => {
 
   const handleChange = (newContent: string) => {
     onChange(newContent);
