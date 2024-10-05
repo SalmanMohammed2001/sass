@@ -25,17 +25,17 @@ export const searchProfileData=async(email:string)=>{
     .select('*')
     .eq('email', email);
       if(data?.length == 0){
-      await  saveProfileUser(email)
-       return;
+    
+      
       }
 
 
       data?.forEach((data:Profile)=>{
         if(data.email == email){
-          return;
+        
         }else{
          
-          saveProfileUser(email)
+        
         }
         
       })      
@@ -45,41 +45,3 @@ export const searchProfileData=async(email:string)=>{
 
  
 
-
-  export const saveProfileUser = async ( userEmail:  string) => {
-    const { data, error } = await supbase
-      .from('profiles')
-      .insert([
-        { 
-          email: userEmail 
-        },
-      ])
-      .select();
-  
-    if (data) {
-      subcritionEmail(userEmail);
-    }
-  
-    if (error) {
-      console.error('Error inserting profile:', error);
-      return;
-    }
-  };
-
-
-  export const subcritionEmail = async (userEmail: string) => {
-
-    const { data, error } = await supbase
-      .from('subscriptionData')
-      .insert([
-        { email: userEmail }  
-      ])
-      .select();
-  
-    if (error) {
-      console.error('Error inserting subscription:', error);
-    } else {
-      console.log('Inserted data:', data);
-    }
-  };
-  
