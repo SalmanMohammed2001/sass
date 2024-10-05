@@ -2,7 +2,7 @@
 
 
 
-
+import { getUser } from "./login/users";
 
 
 
@@ -18,6 +18,23 @@ export const metadata={
 
 
 export default async  function Home() {
+
+  const  user= await getUser()   
+  
+
+
+  const userEmail=user?.email;
+  console.log(userEmail != undefined);
+  
+
+
+
+  
+
+
+ 
+ 
+
 
 
   
