@@ -5,6 +5,7 @@
 
 
 import Image from "next/image";
+import Price from "../subscription/subscription";
 
 
 
@@ -38,7 +39,7 @@ const Hero =  () => {
 
 </div>
 
-
+<Price />
 
 </div>
     
