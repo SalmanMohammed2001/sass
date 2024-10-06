@@ -63,7 +63,7 @@ const Blogs = async () => {
   isActiveCheck();
 
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       {isActivate ? (
         <Allblogs />
       ) : (

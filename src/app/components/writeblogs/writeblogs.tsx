@@ -176,7 +176,7 @@ const Writeblogs = () => {
   }
 
   return (
-    <div className="flex justify-center items-center mt-[100px]   text-black  p-5 min-h-[100vh]">
+    <div className="flex justify-center items-center mt-[100px]   text-black  p-5 min-h-[100vh]  overflow-x-hidden">
 
     
       <div className="max-w-3xl w-[100vw]     grid place-items-center  md:place-items-start mx-auto pt-10 mb-10 gap-[18px]">

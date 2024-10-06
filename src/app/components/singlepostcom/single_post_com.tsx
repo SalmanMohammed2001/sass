@@ -79,26 +79,9 @@ const Singlepostcom: React.FC<Params> = ({ params }) => {
 
   return (
 
-//     <div className={`  ${styles.containe} shadow-xl mt-[100px] p-5 rounded-md`}>
 
 
-
-//     <div className={styles.top}>
-//           <div className={styles.imgContainer}>
-//           <Image alt='' src={data.image_url} className={styles.img} fill/>
-//           </div>
-//         <span className={styles.dates}>01.01.2024</span>
-//     </div>
-    
-//     <div className={styles.bottom}>
-//     <h1 className={styles.title}>{data.title}</h1>
-//        <p className={styles.desc} dangerouslySetInnerHTML={{__html: data.description}}></p>
-  
-    
-//   </div>
-// </div>
-
-<div className={`mt-[100px]  shadow-md  p-5 mb-5`}>
+<div className={`mt-[100px]  shadow-md  p-5 mb-5   overflow-x: hidden`}>
 
 <div className={styles.imgContainer}>
 
