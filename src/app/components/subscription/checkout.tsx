@@ -68,7 +68,7 @@ const Checkout =  ({priceId}:{priceId:string}) => {
      
     }
   
-    return <button className='py-[10px] px-[18px] text-white text-sm rounded-md cursor-pointer bg-[#0AA195] '  onClick={handleCheckout}>Get Subscription  </button>
+    return <button className='py-[10px] border-2 px-[18px] text-white text-sm rounded-md cursor-pointer bg-[#0AA195] '  onClick={handleCheckout}>Get Subscription  </button>
 
 }
 

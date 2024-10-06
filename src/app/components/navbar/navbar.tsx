@@ -108,7 +108,7 @@ const Navbar =  () => {
 
 
     return (
-        <div className={`   flex  justify-between w-[100vw] fixed bg-white   z-50 border`}      >
+        <div className={`   flex  justify-between w-[100%] fixed bg-white   z-50 border`}      >
        <div className=" w-full flex justify-between px-[100px]"> 
        <div className="flex items-center">
                 <Link href={"/"} className=" text-[25px]  md:text-[44px] hidden lg:flex">BLOG SASS</Link>
@@ -149,11 +149,11 @@ const Navbar =  () => {
             {
                 open &&   <div className={`${style.mobileLinks}  lg:hidden`}>
 
-                <div className='pr-5 pt-5 flex justify-end '>
+                <div className='pr-5 pt-5 flex justify-end  '>
                 <IoIosCloseCircle  className={style.closeButton}  onClick={()=>setOpen((pre)=>!pre)}/>
                 </div>
 
-                <div className='w-[100%] h-[100%] gap-[50px] flex items-center justify-center flex-col' onClick={()=>setOpen((pre)=>!pre)}>   
+                <div className='w-[100%] h-[100%] gap-[50px] flex items-center  justify-start mt-5 flex-col' onClick={()=>setOpen((pre)=>!pre)}>   
 
                 <ul className={`flex gap-[40px] text-lg items-center justify-center flex-col  transition-all duration-300 ease-in-out `}>
                 <li><Link href={"/"} className="text-white ">HOME</Link></li>

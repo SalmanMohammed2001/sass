@@ -57,12 +57,9 @@ const Allblogs = () => {
 
   return (
     <div>
-       <div className='flex items-center mt-[100px]'>
+       <div className='flex items-center mt-[100px] '>
     
-      <div className='flex-1'>
-   
-
-      </div>
+    
        </div>
   <div className={style.container}>
 

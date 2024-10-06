@@ -1,7 +1,7 @@
 import Allblogs from "@/app/components/allblogs/allblogs";
 import { redirect } from "next/navigation";
 import Price from "@/app/components/subscription/subscription";
-import { createClient } from "@/app/lib/supabase/client";
+import { createClient } from "@/app/lib/supabase/server";
 
 export const metadata = {
   title: "Blog details",
@@ -17,6 +17,7 @@ interface Subscription {
 }
 
 const Blogs = async () => {
+  
 
   const supabase = createClient();
   const user =  (await supabase.auth.getUser()).data.user;

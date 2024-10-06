@@ -104,7 +104,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={"login-popup z-20 grid"}>
+    <div className={"login-popup z-20 grid my-[100px]"}>
       <form onSubmit={handlerClickAction} className={"login-popup-container shadow-md"}>
         <div className={"login-popup-title flex justify-between items-center text-black"}>
           <h2 className={"text-[32px] font-bold"}>{currState}</h2>

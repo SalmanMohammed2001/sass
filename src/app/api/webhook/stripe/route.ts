@@ -95,6 +95,7 @@ async function onSubCancel(subscriptionId: string): Promise<PostgrestError | nul
     .update({
       customer_id: null,
       subscription_id: null,
+      end_date:null
     })
     .eq("subscription_id", subscriptionId);
 

@@ -49,11 +49,6 @@ const Singlepostcom: React.FC<Params> = ({ params }) => {
         };
 
         const profileData = await   getUserProfileById(slug); // No need for 'as string' if it's already typed
-
-       
-        
-      
-     
         setData(profileData);
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -83,24 +78,61 @@ const Singlepostcom: React.FC<Params> = ({ params }) => {
   };
 
   return (
-    <div className={`mt-[100px] p-2 shadow-md`}>
-      <div className={styles.imgContainer}>
-        <Image src={data.image_url} alt="image" className={styles.image} fill />
-      </div>
 
-      <div className={styles.textContainer}>
-        <h1 className={styles.title}>{data.title}</h1>
+//     <div className={`  ${styles.containe} shadow-xl mt-[100px] p-5 rounded-md`}>
 
-        <div className={styles.details}>
-          <div className={styles.detailsText}>
-            <span className={styles.detailTile}>Published</span>
-            <span className={styles.detailValue}>{formatDate(data.created_at)}</span>
-          </div>
-        </div>
 
-        <div className={styles.content} dangerouslySetInnerHTML={{ __html: data.description }}></div>
-      </div>
+
+//     <div className={styles.top}>
+//           <div className={styles.imgContainer}>
+//           <Image alt='' src={data.image_url} className={styles.img} fill/>
+//           </div>
+//         <span className={styles.dates}>01.01.2024</span>
+//     </div>
+    
+//     <div className={styles.bottom}>
+//     <h1 className={styles.title}>{data.title}</h1>
+//        <p className={styles.desc} dangerouslySetInnerHTML={{__html: data.description}}></p>
+  
+    
+//   </div>
+// </div>
+
+<div className={`mt-[100px]  shadow-md  p-5 mb-5`}>
+
+<div className={styles.imgContainer}>
+
+
+
+ <Image src={data.image_url} alt='imagee' className={styles.image} fill/>
+
+</div>
+
+
+
+
+<div className={styles.textContainer}>
+
+  <h1 className={styles.title}> {data.title}</h1>
+
+  <div className={styles.details}>
+
+
+
+
+
+    <div className={styles.detailsText}>
+    <span className={styles.detailTile}>Published</span>
+    <span className={styles.detailValue}>{formatDate(data.created_at)}</span>
     </div>
+
+</div>
+
+<div className={styles.content}dangerouslySetInnerHTML={{__html: data.description}}></div>
+
+</div>
+</div>
+
   );
 };
 

@@ -92,7 +92,7 @@ const SubscriptionDetails = ({email}:string) => {
        {
         data.map((data)=>{
             // @ts-expect-error: someFunction is not typed, but we expect it to work
-            console.log(data.customer_id);
+            console.log(data.end_date);
             
          
         
@@ -107,7 +107,7 @@ const SubscriptionDetails = ({email}:string) => {
                 {   
                 // @ts-expect-error: someFunction is not typed, but we expect it to work
                 
-                <p className="font-medium">Your Subscription will end on  {data.end_date !=   new Date(data.end_date).toISOString()} </p>}
+                <p className="font-medium">Your Subscription will end on  {data.end_date} </p>}
                  
                     {
                 // @ts-expect-error: someFunction is not typed, but we expect it to work
