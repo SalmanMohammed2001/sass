@@ -23,13 +23,6 @@ interface BlogData{
 }
 
 
-interface Subscription {
-  created_at: string;
-  customer_id: string | null;
-  email: string;
-  end_date: string | null;
-  subscription_id: string | null;
-}
 
 
 interface Post {
