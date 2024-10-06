@@ -9,7 +9,7 @@ import { loadAllBlog } from "@/app/lib/supabase/blog";
 import LoadingCom from "../loadingcom/loading";
 
 import styles from './hero.module.css';
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 
@@ -39,10 +39,7 @@ interface Post {
   image_url: string; 
 }
 
-// Define the props for your component
-interface Props {
-  data: Post[];
-}
+
 
 const supabase = createClient();
 
@@ -82,18 +79,13 @@ const Hero =  () => {
   }
 
      
- let isActivate: boolean = false;
 
- const isActiveCheck = () => {
-   // @ts-expect-error: findSubscription may return null, which we handle in the subsequent logic
-   data.forEach((value: Subscription) => {
-     isActivate = !value.end_date ? false : new Date(value.end_date) > new Date();
-   });
- };
+
+
 
  const handleAction = async(postId:number)=>{
 
-  isActiveCheck()
+
 
   const user =  (await supabase.auth.getUser()).data.user;
 
