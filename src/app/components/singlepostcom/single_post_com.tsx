@@ -44,6 +44,7 @@ const Singlepostcom: React.FC<Params> = ({ params }) => {
             console.error('Error fetching profile:', error);
             return null;
           }
+        console.log(data);
         
           return data;
         };
@@ -81,7 +82,7 @@ const Singlepostcom: React.FC<Params> = ({ params }) => {
 
 
 
-<div className={`mt-[100px]  shadow-md  p-5 mb-5   overflow-x: hidden`}>
+<div className={`mt-[100px]  shadow-md  p-5 mb-5   `}>
 
 <div className={styles.imgContainer}>
 

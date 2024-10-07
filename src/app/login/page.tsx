@@ -1,18 +1,28 @@
+
 "use client";
 
 import { getUser, login, signup } from './users';
 import { useState, useTransition } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { createClient } from '@/app/lib/supabase/client';
+import { useRouter } from 'next/navigation';
+import CustomInput from '../components/input/customInput';
+import CustomButton from '../components/button/custombutton'; 
+import Link from 'next/link';
 
 export default function LoginPage() {
+  const router = useRouter();
+  const supabase = createClient();
+
   const [currState, setCurrState] = useState("Login");
   const [, startTransition] = useTransition();
   
-  const [data, setData] = useState({
+  const [value, setValue] = useState({
     displayName: '',
     email: '',
     password: '',
+    phone: '',
+    otp: ''
   });
 
   const [errors, setErrors] = useState({
@@ -20,23 +30,22 @@ export default function LoginPage() {
     password: '',
   });
 
-  const validateEmail = (email: string) => {
+  const validateEmail = (email:string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const validatePassword = (password: string) => {
+  const validatePassword = (password:string) => {
     return password.length >= 6;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setData((prevData) => ({
+    setValue((prevData) => ({
       ...prevData,
       [name]: value,
     }));
 
-   
     if (name === "email") {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -52,11 +61,10 @@ export default function LoginPage() {
     }
   };
 
-  const handlerClickAction = (e: React.FormEvent) => {
+  const handlerClickAction = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     
-    if (!validateEmail(data.email)) {
+    if (!validateEmail(value.email)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         email: "Invalid email format",
@@ -64,7 +72,7 @@ export default function LoginPage() {
       return;
     }
 
-    if (!validatePassword(data.password)) {
+    if (!validatePassword(value.password)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         password: "Password must be at least 6 characters",
@@ -74,17 +82,19 @@ export default function LoginPage() {
 
     if (currState === "Login") {
       startTransition(async () => {
-        await login(data);
+        await login(value);
       });
     } else {
       startTransition(async () => {
-        await signup(data);
+        await signup(value);
       });
     }
   };
 
-  const loginWithProvider = async (provider: "github" | "google") => {
-    const supabase = createClient();
+
+
+  
+  const loginWithProvider = async (provider:'github' | 'google') => {
     const { error, data } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
@@ -103,6 +113,8 @@ export default function LoginPage() {
     }
   };
 
+  // Other functions for handling OTP and phone sign-in...
+
   return (
     <div className={"login-popup z-20 grid my-[100px] overflow-x-hidden"}>
       <form onSubmit={handlerClickAction} className={"login-popup-container shadow-md"}>
@@ -111,63 +123,57 @@ export default function LoginPage() {
         </div>
 
         <div className={"login-popup-input flex flex-col gap-[15px]"}>
-          <input
+       
+          <CustomInput
             id="email"
             name="email"
-            className={"outline-none p-[10px] border-[#c9c9c9] border-2 border-solid rounded-md"}
             type="email"
-            placeholder={"Your Email"}
-            value={data.email}
+            placeholder="Your Email"
+            value={value.email}
             onChange={handleChange}
-            required
+            error={errors.email}
           />
-          {errors.email && <p className="text-red-600">{errors.email}</p>} 
 
-          <input
+          <CustomInput
             id="password"
             name="password"
-            className={"outline-none p-[10px] border-[#c9c9c9] border-2 border-solid rounded-md"}
             type="password"
-            placeholder={"Your Password"}
-            value={data.password}
+            placeholder="Your Password"
+            value={value.password}
             onChange={handleChange}
-            required
+            error={errors.password}
           />
-          {errors.password && <p className="text-red-600">{errors.password}</p>} 
+    
+        
+        
+
+       
         </div>
 
-        <button
-          type={"submit"}
-          className={"border-none p-[10px] text-white bg-orange-600 text-[14px] cursor-pointer rounded-md"}
-        >
-          {currState === "Sign Up" ? "Create Account" : "Login"}
-        </button>
 
-        <button
-          type={"button"}
-          onClick={() => loginWithProvider("google")}
-          className={"border-none m p-[10px] text-white bg-[#0AA195] text-[14px] cursor-pointer rounded-md flex items-center justify-center gap-[10px]"}
-        >
+
+        <CustomButton type="submit">
+          {currState === "SignUp" ? "Create Account" : "Login"}
+        </CustomButton>
+
+        <CustomButton type="button" onClick={() => loginWithProvider("google")} className="bg-[#0AA195] flex items-center justify-center gap-[10px]">
           <FaGoogle /> Google
-        </button>
+        </CustomButton>
 
-        <button
-          type={"button"}
-          onClick={() => loginWithProvider("github")}
-          className={"border-none p-[10px] text-white bg-[#0AA195] text-[14px] cursor-pointer rounded-md flex items-center justify-center gap-[10px]"}
-        >
+        <CustomButton type="button" onClick={() => loginWithProvider("github")} className="bg-[#0AA195] flex items-center justify-center gap-[10px]">
           <FaGithub /> GitHub
-        </button>
+        </CustomButton>
 
-        <div className="login-popup-condation flex items-start gap-[8px] mt-[-15px]">
-          <input type="checkbox" className={"mt-[5px]"} required />
-          <p className={"text-[11px]"}>By Continuing I agree to the terms of use & privacy policy</p>
-        </div>
+       
 
-        {currState === "Login" ? (
+        {/* Other buttons for magic link and phone sign-in... */}
+
+       
+
+         {currState === "Login" ? (
           <p className={"text-[13px]"}>
             Create a new Account?{" "}
-            <span className={"text-orange-600 font-[500] cursor-pointer"} onClick={() => setCurrState("Sign Up")}>
+            <span className={"text-orange-600 font-[500] cursor-pointer"} onClick={() => setCurrState("SignUp")}>
               Click Here
             </span>
           </p>
@@ -178,8 +184,16 @@ export default function LoginPage() {
               Login here
             </span>
           </p>
-        )}
+        ) }
+
+          <Link href={"/magic"} className={"text-[13px]  cursor-pointer"}>
+          Login with Magic Link
+        
+          </Link>
+        
       </form>
     </div>
   );
 }
+
+

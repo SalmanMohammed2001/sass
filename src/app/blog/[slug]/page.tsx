@@ -10,8 +10,13 @@ interface PageProps {
 }
 
 const Page: FC<PageProps> = ({ params }) => {
+  
+  console.log(params);
+  
+  
   return (
     <Singlepostcom params={params} />
+
   );
 }
 
