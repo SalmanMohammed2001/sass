@@ -4,6 +4,8 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/app/lib/supabase/server'
 import { Provider } from '@supabase/supabase-js';
+import { useRouter } from 'next/router';
+
 
 // Define a type for the form data
 interface FormData {
@@ -12,6 +14,7 @@ interface FormData {
 }
 
 export async function login(formData: FormData) {
+
   const supabase = createClient();
 
   const data: FormData = {
@@ -48,6 +51,7 @@ export async function signup(formData: FormData) {
   if (error) {
     redirect('/error');
   }
+  
 
   redirect('/subscription');
 }

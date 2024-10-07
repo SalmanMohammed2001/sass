@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import CustomInput from '../components/input/customInput';
 import CustomButton from '../components/button/custombutton'; 
 import Swal from 'sweetalert2';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -67,22 +68,30 @@ console.log(email);
             },
           })
 
+          console.log(error);
+          console.log(data);
+          
+          
+
           if(data){
             console.log(data);
             
+           if(data.user!=null){
             router.push('/subscription');
-          }else{
+           }
+          }
             Swal.fire({
               icon: "error",
               title: error?.message,
               text: "Please fill in all fields correctly before submitting.",
             });
             return;
-          }
+          
          
           
       
   };
+
 
 
 
@@ -118,11 +127,14 @@ console.log(email);
 
 
     
-        <CustomButton type="button" onClick={handlerClickAction} className="bg-[#0AA195] flex items-center justify-center gap-[10px]">
+        <CustomButton type="submit"  className="bg-[#0AA195] flex items-center justify-center gap-[10px]">
           Magic Link
         </CustomButton>
 
-
+        <Link href={"/login"} className={"text-[13px]  cursor-pointer"}>
+          Login Page
+        
+          </Link>
  
 
       </form>

@@ -10,7 +10,9 @@ import CustomInput from '../components/input/customInput';
 import CustomButton from '../components/button/custombutton'; 
 import Link from 'next/link';
 
+
 export default function LoginPage() {
+;
 
   const supabase = createClient();
 
