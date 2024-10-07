@@ -16,7 +16,7 @@ interface Profile {
 
 
 export const metadata={
-  title:"Home Page",
+  title:"Home Page s",
   description:" Home Pafe Details"
   
 }
