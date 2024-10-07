@@ -3,8 +3,8 @@
 "use client";
 
 
-import { useState, useTransition } from 'react';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { useState} from 'react';
+
 import { createClient } from '@/app/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import CustomInput from '../components/input/customInput';
@@ -58,6 +58,7 @@ export default function LoginPage() {
     }
 
     
+console.log(email);
 
     const { data, error } = await supabase.auth.signInWithOtp({
             email: email,

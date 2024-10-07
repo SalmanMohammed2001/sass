@@ -5,13 +5,13 @@ import { getUser, login, signup } from './users';
 import { useState, useTransition } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { createClient } from '@/app/lib/supabase/client';
-import { useRouter } from 'next/navigation';
+
 import CustomInput from '../components/input/customInput';
 import CustomButton from '../components/button/custombutton'; 
 import Link from 'next/link';
 
 export default function LoginPage() {
-  const router = useRouter();
+
   const supabase = createClient();
 
   const [currState, setCurrState] = useState("Login");

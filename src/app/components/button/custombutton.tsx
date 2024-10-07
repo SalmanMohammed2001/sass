@@ -2,7 +2,7 @@ import React from 'react';
 
 interface CustomButtonProps {
   type: 'button' | 'submit' | 'reset';
-  onClick?: () => void;              
+  onClick?: () => void | {};              
   children: React.ReactNode;        
   className?: string;                
 }
