@@ -4,7 +4,6 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/app/lib/supabase/server'
 import { Provider } from '@supabase/supabase-js';
-import { useRouter } from 'next/router';
 
 
 // Define a type for the form data
